@@ -39,8 +39,8 @@ styles/       → Global CSS
 
 ## 📸 Screenshots
 
-![Homepage](./public/screenshots/home.png)
-![Projects Section](./public/screenshots/projects.png)
+![Homepage](./public/screenshots/homepage.jpg)
+
 
 
 ## 🛠️ Getting Started
