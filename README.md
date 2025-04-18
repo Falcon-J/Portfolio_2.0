@@ -22,7 +22,7 @@ A modern, responsive, and accessible developer portfolio built using **Next.js 1
 - 📱 Responsive design for all screen sizes
 - 🧑‍💻 Developer-friendly folder structure
 - 🧩 Modular and reusable components
-- 🌙 Dark mode support
+- 🌙 Dark mode support ( upcoming feature..)
 - 🔍 SEO-friendly with customizable meta tags
 
 ## 📁 Folder Structure
@@ -39,11 +39,9 @@ styles/       → Global CSS
 
 ## 📸 Screenshots
 
-> *(Add images in the `public/` folder and link them here)*
-
 ![Homepage](./public/screenshots/home.png)
 ![Projects Section](./public/screenshots/projects.png)
-![Dark Mode](./public/screenshots/dark-mode.png)
+
 
 ## 🛠️ Getting Started
 
