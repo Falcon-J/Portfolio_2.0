@@ -21,15 +21,15 @@ export default function ProjectsPage() {
       slug: "portfolio-website",
       description:
         "A high-performance personal portfolio website showcasing my skills, projects, and experience.",
-      image: "/placeholder.svg?height=200&width=400",
-      tags: ["React", "Tailwind CSS", "Redux", "JavaScript"],
+      image: "/screenshots/homepage.jpg",
+      tags: ["Next.js", "Tailwind CSS",  "TypeScript", "Firebase", "Redux"],
       features: [
         "Developed a high-performance personal portfolio, improving load times by 40% and boosting user engagement.",
         "Enhanced UI/UX with Tailwind CSS, reducing development time by 20% and ensuring responsiveness across devices.",
         "Implemented Redux for efficient state management across 50+ components, improving data consistency.",
       ],
-      github: "https://github.com/omkarjawalikar/portfolio",
-      live: "https://omkarjawalikar.vercel.app",
+      github: "https://github.com/Falcon-J/Portfolio_2.0",
+      live: "https://portfolio-2-0-seven-theta.vercel.app/",
     },
     {
       id: 2,
@@ -51,23 +51,6 @@ export default function ProjectsPage() {
 
   return (
     <PageWrapper>
-       {/* Animated Background */}
-       <div className="fixed inset-0 -z-10 ">
-        <div className="lines-pattern h-full w-full">
-          <div className="line"></div>
-          <div className="line"></div>
-          <div className="line"></div>
-          <div className="line"></div>
-          <div className="line"></div>
-          <div className="line"></div>
-          <div className="line"></div>
-          <div className="line"></div>
-          <div className="line"></div>
-          <div className="line"></div>
-          <div className="line"></div>
-          <div className="line"></div>
-        </div>
-      </div>
       <section className="py-20">
         <div className="container">
           <FadeIn>

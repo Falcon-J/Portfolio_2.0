@@ -1,12 +1,12 @@
-import { PageWrapper } from "@/components/page-wrapper"
-import { FadeIn } from "@/components/fade-in"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Github, ExternalLink, ArrowLeft } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
+import { PageWrapper } from "@/components/page-wrapper";
+import { FadeIn } from "@/components/fade-in";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Github, ExternalLink, ArrowLeft } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 // This would typically come from a database or CMS
 const getProjectData = (slug: string) => {
@@ -15,8 +15,8 @@ const getProjectData = (slug: string) => {
       title: "Portfolio Website",
       description:
         "A high-performance personal portfolio website showcasing my skills, projects, and experience. Built with React, Tailwind CSS, and Redux to create a responsive and engaging user experience.",
-      image: "/placeholder.svg?height=600&width=1200",
-      tags: ["React", "Tailwind CSS", "Redux", "JavaScript"],
+      image: "/screenshots/homepage.jpg",
+      tags: ["Next.js", "Tailwind CSS",  "TypeScript", "Firebase", "Redux"],
       features: [
         "Developed a high-performance personal portfolio, improving load times by 40% and boosting user engagement.",
         "Enhanced UI/UX with Tailwind CSS, reducing development time by 20% and ensuring responsiveness across devices.",
@@ -39,10 +39,8 @@ const getProjectData = (slug: string) => {
         tools: ["Git", "Figma", "Lighthouse", "Webpack"],
         deployment: ["Vercel", "GitHub Actions"],
       },
-      github: "https://github.com/omkarjawalikar/portfolio",
-      live: "https://omkarjawalikar.vercel.app",
-      timeline: "3 weeks",
-      role: "Full Stack Developer",
+      github: "https://github.com/Falcon-J/Portfolio_2.0",
+      live: "https://portfolio-2-0-seven-theta.vercel.app/",
     },
     "travel-trouve": {
       title: "TravelTrouve",
@@ -74,28 +72,31 @@ const getProjectData = (slug: string) => {
       },
       github: "https://github.com/omkarjawalikar/traveltrouve",
       live: "https://traveltrouve.vercel.app",
-      timeline: "2 months",
-      role: "Full Stack Developer",
     },
-    
-  }
+  };
 
-  return projects[slug as keyof typeof projects]
-}
+  return projects[slug as keyof typeof projects];
+};
 
-export default function ProjectDetailPage({ params }: { params: { slug: string } }) {
-  const project = getProjectData(params.slug)
+export default function ProjectDetailPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const project = getProjectData(params.slug);
 
   if (!project) {
     return (
       <div className="container py-20 text-center">
         <h1 className="text-2xl font-bold mb-4">Project not found</h1>
-        <p className="mb-8">The project you're looking for doesn't exist or has been removed.</p>
+        <p className="mb-8">
+          The project you're looking for doesn't exist or has been removed.
+        </p>
         <Button asChild>
           <Link href="/projects">Back to Projects</Link>
         </Button>
       </div>
-    )
+    );
   }
 
   return (
@@ -112,7 +113,9 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
           </div>
 
           <FadeIn>
-            <h1 className="text-4xl font-bold mb-6 text-navy">{project.title}</h1>
+            <h1 className="text-4xl font-bold mb-6 text-navy">
+              {project.title}
+            </h1>
             <div className="flex flex-wrap gap-2 mb-8">
               {project.tags.map((tag) => (
                 <Badge key={tag} className="bg-navy text-cream">
@@ -124,7 +127,12 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
 
           <FadeIn delay={0.2}>
             <div className="relative h-[400px] rounded-xl overflow-hidden mb-12">
-              <Image src={project.image || "/placeholder.svg"} alt={project.title} fill className="object-cover" />
+              <Image
+                src={project.image || "/placeholder.svg"}
+                alt={project.title}
+                fill
+                className="object-cover"
+              />
             </div>
           </FadeIn>
 
@@ -132,12 +140,18 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
             <FadeIn delay={0.3} className="md:col-span-2">
               <div className="space-y-8">
                 <div>
-                  <h2 className="text-2xl font-bold mb-4 text-navy">Overview</h2>
-                  <p className="text-navy/80 leading-relaxed">{project.description}</p>
+                  <h2 className="text-2xl font-bold mb-4 text-navy">
+                    Overview
+                  </h2>
+                  <p className="text-navy/80 leading-relaxed">
+                    {project.description}
+                  </p>
                 </div>
 
                 <div>
-                  <h2 className="text-2xl font-bold mb-4 text-navy">Key Features</h2>
+                  <h2 className="text-2xl font-bold mb-4 text-navy">
+                    Key Features
+                  </h2>
                   <ul className="space-y-2">
                     {project.features.map((feature, i) => (
                       <li key={i} className="flex gap-2 text-navy/80">
@@ -166,7 +180,10 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
                     <TabsTrigger value="challenges">Challenges</TabsTrigger>
                     <TabsTrigger value="solutions">Solutions</TabsTrigger>
                   </TabsList>
-                  <TabsContent value="challenges" className="p-4 border rounded-md mt-2 border-beige">
+                  <TabsContent
+                    value="challenges"
+                    className="p-4 border rounded-md mt-2 border-beige"
+                  >
                     <ul className="space-y-2">
                       {project.challenges.map((challenge, i) => (
                         <li key={i} className="flex gap-2 text-navy/80">
@@ -191,7 +208,10 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
                       ))}
                     </ul>
                   </TabsContent>
-                  <TabsContent value="solutions" className="p-4 border rounded-md mt-2 border-beige">
+                  <TabsContent
+                    value="solutions"
+                    className="p-4 border rounded-md mt-2 border-beige"
+                  >
                     <ul className="space-y-2">
                       {project.solutions.map((solution, i) => (
                         <li key={i} className="flex gap-2 text-navy/80">
@@ -226,20 +246,29 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
                     <div className="space-y-4">
                       <div className="flex justify-between">
                         <span className="text-navy/70">Role</span>
-                        <span className="font-medium text-navy">{project.role}</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-navy/70">Timeline</span>
-                        <span className="font-medium text-navy">{project.timeline}</span>
                       </div>
                       <div className="pt-4 space-y-2">
-                        <Button className="w-full bg-navy text-cream hover:bg-navy/90" asChild>
-                          <a href={project.live} target="_blank" rel="noopener noreferrer">
+                        <Button
+                          className="w-full bg-navy text-cream hover:bg-navy/90"
+                          asChild
+                        >
+                          <a
+                            href={project.live}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
                           </a>
                         </Button>
                         <Button className="w-full" variant="outline" asChild>
-                          <a href={project.github} target="_blank" rel="noopener noreferrer">
+                          <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <Github className="mr-2 h-4 w-4" /> View Code
                           </a>
                         </Button>
@@ -249,31 +278,41 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
                 </Card>
 
                 <div>
-                  <h3 className="text-xl font-bold mb-4 text-navy">Technologies Used</h3>
+                  <h3 className="text-xl font-bold mb-4 text-navy">
+                    Technologies Used
+                  </h3>
                   <div className="space-y-4">
                     <div>
                       <h4 className="font-medium text-navy mb-2">Frontend</h4>
                       <div className="flex flex-wrap gap-2">
                         {project.technologies.frontend.map((tech) => (
-                          <Badge key={tech} variant="outline" className="border-navy text-navy">
+                          <Badge
+                            key={tech}
+                            variant="outline"
+                            className="border-navy text-navy"
+                          >
                             {tech}
                           </Badge>
                         ))}
                       </div>
                     </div>
-                  
+
                     <div>
-                      <h4 className="font-medium text-navy mb-2">Tools & Deployment</h4>
+                      <h4 className="font-medium text-navy mb-2">
+                        Tools & Deployment
+                      </h4>
                       <div className="flex flex-wrap gap-2">
                         {(project.technologies.tools || []).map((tech) => (
-                          <Badge key={tech} variant="outline" className="border-navy text-navy">
+                          <Badge
+                            key={tech}
+                            variant="outline"
+                            className="border-navy text-navy"
+                          >
                             {tech}
                           </Badge>
                         ))}
-                       
                       </div>
                     </div>
-                   
                   </div>
                 </div>
               </div>
@@ -282,5 +321,5 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
         </div>
       </section>
     </PageWrapper>
-  )
+  );
 }
